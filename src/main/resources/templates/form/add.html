@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>タスクを追加する │ ToDoアプリケーション</title>
+</head>
+<body>
+<h1>タスクを追加する</h1>
+
+<form action="#" th:action="@{/}" th:method="post" th:object="${addForm}">
+	<div>
+		<label for="titleInput">タイトル</label>
+		<input type="text" id="titleInput" th:field="*{task}">
+	</div>
+	<div>
+		<label for="limitInput">期限</label>
+		<input type="date" id="limitInput" th:field="*{limitDate}">
+	</div>
+	<div>
+		<a href="../list.html" th:href="@{/}">戻る</a>
+		<button type="submit">追加する</button>
+	</div>
+</form>
+</body>
+</html>
