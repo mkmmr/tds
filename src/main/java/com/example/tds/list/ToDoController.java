@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,9 +37,15 @@ public class ToDoController {
 		return "form/add";
 	}
 
-	@PostMapping
+	@PostMapping("/form/add")
 	public String create(AddForm form, Model model) {
 		toDoService.create("未完了", form.getTask(), form.getLimitDate());
-		return "list";
+		return "redirect:/";
+	}
+
+	@PostMapping("/delete")
+	public String delete(@RequestParam Integer id) {
+		toDoService.deleteById(id);
+		return "redirect:/";
 	}
 }
