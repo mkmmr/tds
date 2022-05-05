@@ -7,7 +7,7 @@
 <body>
 <h1>タスクを追加する</h1>
 
-<form action="#" th:action="@{/}" th:method="post" th:object="${addForm}">
+<form action="#" th:action="@{/form/add}" th:method="post" th:object="${addForm}">
 	<div>
 		<label for="titleInput">タイトル</label>
 		<input type="text" id="titleInput" th:field="*{task}">
