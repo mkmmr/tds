@@ -19,14 +19,15 @@
 	</thead>
 	<tbody>
 	<tr th:each="toDo : ${toDoList}">
-		<td th:text="${toDo.state}">
-			<span>(state)</span>
+		<td>
+			<span th:if="${toDo.state}">完了</span>
+			<span th:unless="${toDo.state}">未完了</span>
 		</td>
 		<td th:text="${toDo.task}">(task)</td>
 		<td th:text="${toDo.limitDate}">(limitDate)</td>
 		<td>
-			<form action="#">
-				<button type="submit">(OK)</button>
+			<form action="#" th:action="@{/switch}" method="post">
+				<button th:unless="${toDo.state}" type="submit" name="toDoId" th:value="${toDo.id}">(OK)</button>
 			</form>
 		</td>
 		<td>
