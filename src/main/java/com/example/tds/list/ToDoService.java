@@ -22,10 +22,12 @@ public class ToDoService {
 		toDoRepository.insert(task, limitDate);
 	}
 
+	@Transactional
 	public void deleteById(long toDoId) {
 		toDoRepository.deleteById(toDoId);
 	}
 
+	@Transactional
 	public void update(String task, String limitDate, long toDoId) {
 		toDoRepository.update(task, limitDate, toDoId);
 	}
@@ -34,6 +36,7 @@ public class ToDoService {
 		return toDoRepository.findById(toDoId);
 	}
 
+	@Transactional
 	public void switchState(long toDoId) {
 		toDoRepository.switchState(toDoId);
 	}

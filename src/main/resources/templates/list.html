@@ -25,9 +25,10 @@
 		</td>
 		<td th:text="${toDo.task}">(task)</td>
 		<td th:text="${toDo.limitDate}">(limitDate)</td>
-		<td>
-			<form action="#" th:action="@{/switch}" method="post">
-				<button th:unless="${toDo.state}" type="submit" name="toDoId" th:value="${toDo.id}">(OK)</button>
+		<td th:if="${toDo.state}" type="submit" name="toDoId" th:value="${toDo.id}">-</td>
+		<td th:unless="${toDo.state}">
+			<form action="#" th:action="@{/switch}" method="post"> 
+				<button type="submit" name="toDoId" th:value="${toDo.id}">OK</button>
 			</form>
 		</td>
 		<td>

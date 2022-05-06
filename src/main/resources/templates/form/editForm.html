@@ -10,10 +10,12 @@
 	<div>
 		<label for="taskEdit">タスク</label>
 		<input type="text" id="taskEdit" th:field="*{task}">
+		<p th:if="${#fields.hasErrors('task')}" th:errors="*{task}">(error)</p>
 	</div>
 	<div>
 		<label for="limitEdit">期限</label>
 		<input type="date" id="limitEdit" th:field="*{limitDate}">
+		<p th:if="${#fields.hasErrors('limitDate')}" th:errors="*{limitDate}">(error)</p>
 	</div>
 	<button type="submit">編集する</button><br/><br/>
 	<a href="../list.html" th:href="@{/}">一覧に戻る</a>
