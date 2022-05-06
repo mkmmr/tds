@@ -15,8 +15,8 @@ public interface ToDoRepository {
 	@Select("select * from to_do_list")
 	List<ToDoEntity> selectAll();
 
-	@Insert("insert into to_do_list (state, task, limit_date) values (#{state}, #{task}, #{limit_date})")
-	void insert(@Param("state") String state, @Param("task") String task, @Param("limit_date") String limitDate);
+	@Insert("insert into to_do_list (state, task, limit_date) values (0, #{task}, #{limit_date})")
+	void insert(@Param("task") String task, @Param("limit_date") String limitDate);
 
 	@Delete("delete from to_do_list where id = #{id}")
 	int deleteById(@Param("id") long toDoid);
@@ -26,4 +26,7 @@ public interface ToDoRepository {
 
 	@Select("select * from to_do_list where id = #{id}")
 	ToDoEntity findById(@Param("id") long toDoId);
+
+	@Update("update to_do_list set state = 1 where id = #{id}")
+	void switchState(@Param("id") long toDoId);
 }

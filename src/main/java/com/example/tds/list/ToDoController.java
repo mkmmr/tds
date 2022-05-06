@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 
@@ -34,12 +33,12 @@ public class ToDoController {
 	// 要バリデーション処理
 	@PostMapping("/form/add")
 	public String create(AddForm form, Model model) {
-		toDoService.create("未完了", form.getTask(), form.getLimitDate());
+		toDoService.create(form.getTask(), form.getLimitDate());
 		return "redirect:/";
 	}
 
 	@PostMapping("/delete")
-	public String delete(@RequestParam long toDoId) {
+	public String delete(long toDoId) {
 		toDoService.deleteById(toDoId);
 		return "redirect:/";
 	}
@@ -57,4 +56,11 @@ public class ToDoController {
 		model.addAttribute("editForm", toDoService.findById(toDoId));
 		return "redirect:/";
 	}
+
+	@PostMapping("/switch")
+	public String switchState(long toDoId) {
+		toDoService.switchState(toDoId);
+		return "redirect:/";
+	}
+
 }
