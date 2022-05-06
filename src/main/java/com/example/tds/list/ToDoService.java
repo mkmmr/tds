@@ -22,12 +22,16 @@ public class ToDoService {
 		toDoRepository.insert(state, task, limitDate);
 	}
 
-	public void deleteById(Integer id) {
-		toDoRepository.deleteById(id);
+	public void deleteById(long toDoId) {
+		toDoRepository.deleteById(toDoId);
 	}
 
-	public void update(String state) {
-		toDoRepository.update(state);
+	public void update(String task, String limitDate, long toDoId) {
+		toDoRepository.update(task, limitDate, toDoId);
+	}
+
+	public ToDoEntity findById(long toDoId) {
+		return toDoRepository.findById(toDoId);
 	}
 
 }

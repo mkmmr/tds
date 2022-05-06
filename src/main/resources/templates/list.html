@@ -14,6 +14,7 @@
 	    <th>期限</th>
 	    <th></th>
 	    <th></th>
+	    <th></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -29,8 +30,11 @@
 			</form>
 		</td>
 		<td>
+			<a th:href="@{/form/editForm/{toDoId}(toDoId=${toDo.id})}">編集</a>
+		</td>
+		<td>
 			<form th:action="@{/delete}" method="post">
-				<input type="hidden" name="id" th:value="${toDo.id}"/>
+				<input type="hidden" name="toDoId" th:value="${toDo.id}"/>
 				<input type="submit" value="削除"/>
 			</form>
 		</td>
@@ -38,7 +42,7 @@
 	</tbody>
 </table>
 <div>
-	<a href="./form/add.html" th:href="@{/form/add}">タスクを追加する</a>
+	<a href="./form/add.html" th:href="@{/form/addForm}">タスクを追加する</a>
 </div>
 </body>
 </html>

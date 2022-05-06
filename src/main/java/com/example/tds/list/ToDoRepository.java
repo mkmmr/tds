@@ -19,8 +19,11 @@ public interface ToDoRepository {
 	void insert(@Param("state") String state, @Param("task") String task, @Param("limit_date") String limitDate);
 
 	@Delete("delete from to_do_list where id = #{id}")
-	int deleteById(@Param("id") Integer id);
+	int deleteById(@Param("id") long toDoid);
 
-	@Update("update to_do_list set state = #{state}")
-	int update(@Param("state") String state);
+	@Update("update to_do_list set task = #{task}, limit_date = #{limit_date} where id = #{id}")
+	int update(@Param("task") String task, @Param("limit_date") String limitDate, @Param("id") long toDoId);
+
+	@Select("select * from to_do_list where id = #{id}")
+	ToDoEntity findById(@Param("id") long toDoId);
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>タスクを編集する │ ToDoアプリケーション</title>
+</head>
+<body>
+<h1>タスクを編集する</h1>
+<form th:method="post" th:object="${editForm}" th:action="@{/form/editForm/{toDoId}(toDoId=*{id})}">
+	<div>
+		<label for="taskEdit">タスク</label>
+		<input type="text" id="taskEdit" th:field="*{task}">
+	</div>
+	<div>
+		<label for="limitEdit">期限</label>
+		<input type="date" id="limitEdit" th:field="*{limitDate}">
+	</div>
+	<button type="submit">編集する</button><br/><br/>
+	<a href="../list.html" th:href="@{/}">一覧に戻る</a>
+</form>
+</body>
+</html>
