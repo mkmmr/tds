@@ -5,6 +5,8 @@ package com.example.tds.list;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,13 +28,15 @@ public class ToDoController {
 
 	@GetMapping("/form/addForm")
 	public String showAddForm(Model model) {
-		model.addAttribute("addForm", new AddForm());
+		model.addAttribute("addForm", new ToDoForm());
 		return "form/addForm";
 	}
 
-	// 要バリデーション処理
 	@PostMapping("/form/add")
-	public String create(AddForm form, Model model) {
+	public String create(@Validated ToDoForm form, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			return showAddForm(model);
+		}
 		toDoService.create(form.getTask(), form.getLimitDate());
 		return "redirect:/";
 	}
@@ -49,9 +53,12 @@ public class ToDoController {
 		return "form/editForm";
 	}
 
-	// 要バリデーション処理
 	@PostMapping("/form/editForm/{toDoId}")
-	public String edit(@PathVariable("toDoId") long toDoId, EditForm form, Model model) {
+	public String edit(@Validated ToDoForm form, BindingResult bindingResult, @PathVariable("toDoId") long toDoId,
+			Model model) {
+		if (bindingResult.hasErrors()) {
+			return showEditForm(toDoId, model);
+		}
 		toDoService.update(form.getTask(), form.getLimitDate(), toDoId);
 		model.addAttribute("editForm", toDoService.findById(toDoId));
 		return "redirect:/";

@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ToDoRepository {
 
-	@Select("select * from to_do_list")
+	@Select("select * from to_do_list order by limit_date")
 	List<ToDoEntity> selectAll();
 
 	@Insert("insert into to_do_list (state, task, limit_date) values (0, #{task}, #{limit_date})")

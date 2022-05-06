@@ -11,10 +11,12 @@
 	<div>
 		<label for="titleInput">タイトル</label>
 		<input type="text" id="titleInput" th:field="*{task}">
+		<p th:if="${#fields.hasErrors('task')}" th:errors="*{task}">(error)</p>
 	</div>
 	<div>
 		<label for="limitInput">期限</label>
 		<input type="date" id="limitInput" th:field="*{limitDate}">
+		<p th:if="${#fields.hasErrors('limitDate')}" th:errors="*{limitDate}">(error)</p>
 	</div>
 	<div>
 		<a href="../list.html" th:href="@{/}">戻る</a>
