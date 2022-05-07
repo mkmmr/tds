@@ -2,49 +2,84 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../static/css/destyle.css" th:href="@{/css/destyle.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Nunito&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 	<title>タスク一覧 │ ToDoアプリケーション</title>
 </head>
 <body>
-<h1>タスク一覧</h1>
-<table>
-	<thead>
-	<tr>
-	    <th>状態</th>
-	    <th>タスク</th>
-	    <th>期限</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr th:each="toDo : ${toDoList}">
-		<td>
-			<span th:if="${toDo.state}">完了</span>
-			<span th:unless="${toDo.state}">未完了</span>
-		</td>
-		<td th:text="${toDo.task}">(task)</td>
-		<td th:text="${toDo.limitDate}">(limitDate)</td>
-		<td th:if="${toDo.state}" type="submit" name="toDoId" th:value="${toDo.id}">-</td>
-		<td th:unless="${toDo.state}">
-			<form action="#" th:action="@{/switch}" method="post"> 
-				<button type="submit" name="toDoId" th:value="${toDo.id}">OK</button>
-			</form>
-		</td>
-		<td>
-			<a th:href="@{/form/editForm/{toDoId}(toDoId=${toDo.id})}">編集</a>
-		</td>
-		<td>
-			<form th:action="@{/delete}" method="post">
-				<input type="hidden" name="toDoId" th:value="${toDo.id}"/>
-				<input type="submit" value="削除"/>
-			</form>
-		</td>
-	</tr>
-	</tbody>
-</table>
-<div>
-	<a href="./form/add.html" th:href="@{/form/addForm}">タスクを追加する</a>
-</div>
+	<header>
+		<div>
+		<h1>TO DO APPLICATION</h1>
+		</div>
+	</header>
+	<main>
+		<div>
+			<h2>タスク一覧</h2>
+		</div>
+		<div class="innerWrap">
+			<div class="submitBtn">
+				<a href="./form/add.html" th:href="@{/form/addForm}" >
+				<span class="material-symbols-outlined">add_circle</span>
+				<span>新規タスク追加</span>
+				</a>
+			</div>
+		</div>
+		<div class="innerWrap">
+		<table>
+			<thead>
+				<tr>
+				    <th class="width5"></th>
+				    <th>タスク</th>
+				    <th class="width15">期限</th>
+				    <th class="width5"></th>
+				    <th class="width5"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="toDo : ${toDoList}" th:if="${toDo.state}">
+					<td class="width5">
+						<span class="material-symbols-rounded compIcon">check_circle</span>
+					</td>
+					<td th:text="${toDo.task}">(task)</td>
+					<td th:text="${toDo.limitDate}">(limitDate)</td>
+					<td>
+						<a th:href="@{/form/editForm/{toDoId}(toDoId=${toDo.id})}" class="material-symbols-outlined menuIcon">edit</a>
+					</td>
+					<td>
+						<form th:action="@{/delete}" method="post">
+							<input type="hidden" name="toDoId" th:value="${toDo.id}"/>
+							<input type="submit" class="material-symbols-outlined menuIcon" value="delete_forever"/>
+						</form>
+					</td>
+				</tr>
+				<tr th:each="toDo : ${toDoList}" th:unless="${toDo.state}">
+					<td class="width5">
+						<form action="#" th:action="@{/switch}" method="post"> 
+							<input type="hidden" name="toDoId" th:value="${toDo.id}"/>
+							<input type="submit" class="material-symbols-outlined uncompIcon" value="check_circle">
+						</form>
+					</td>
+					<td th:text="${toDo.task}">(task)</td>
+					<td th:text="${toDo.limitDate}">(limitDate)</td>
+					<td>
+						<a th:href="@{/form/editForm/{toDoId}(toDoId=${toDo.id})}" class="material-symbols-outlined menuIcon">edit</a>
+					</td>
+					<td>
+						<form th:action="@{/delete}" method="post">
+							<input type="hidden" name="toDoId" th:value="${toDo.id}"/>
+							<input type="submit" class="material-symbols-outlined menuIcon" value="delete_forever"/>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</main>
 </body>
 </html>
