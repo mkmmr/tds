@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+body{
+	font-family: 'M PLUS Rounded 1c', sans-serif;;
+	color: #4e4e4e;
+	font-size: 16px;
+}
+
+header {
+	width: 100%;
+	color: #aaaaaa;
+	background-color: #eeeeee;
+	margin:  0 auto;
+	padding:  5px;
+}
+
+.innerWrap{
+	/*border:  4px solid lightblue;*/
+	width: 1240px;
+	margin:  0 auto;
+	padding:  20px;
+}
+
+main h2{
+	font-size: 30px;
+	font-weight: bold;
+	letter-spacing: .05em;
+	width: 1240px;
+	margin:  0 auto;
+	padding:  20px;
+}
+
+.submitBtn {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.submitBtn a{
+	background-color: #50dcd8;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 4px;
+	padding: 15px 30px;
+	display: inline-block;
+}
+
+.submitBtn a:hover{
+	opacity: .9;
+}
+
+.submitBtn span{
+	vertical-align: middle;
+}
+
+table{
+	width: 100%;
+	margin: 0 auto;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+}
+
+th.width5{
+	width: 5%;
+}
+
+th.width10{
+	width: 10%;
+}
+
+th.width15{
+	width: 15%;
+}
+
+table tr{
+  border-bottom: solid 1px #eee;
+}
+
+tbody tr:hover{
+  background-color: #e1f9f8;
+}
+
+table th {
+	font-size: 14px;
+	color: #aaaaaa;
+}
+
+table th,table td{
+  text-align: start;
+  width: 25%;
+  padding: 15px 25px;
+}
+
+table td{
+	vertical-align: middle;
+}
+
+td.width5{
+	text-align: center;
+}
+
+.material-symbols-outlined {
+	color: #4e4e4e;
+}
+
+.menuIcon{
+	color: #aaaaaa;
+	text-align: center;
+}
+
+.menuIcon:hover {
+	color: #4e4e4e;
+}
+
+.compIcon{
+	color: #50dcd8;
+}
+
+.uncompIcon{
+	color: #aaaaaa;
+}
+
+.uncompIcon:hover{
+	color: #50dcd8;
+}
+
+/* Rules for sizing the icon. */
+.material-symbols-outlined.md-18 { font-size: 18px; }
+.material-symbols-outlined.md-24 { font-size: 24px; }
+.material-symbols-outlined.md-36 { font-size: 36px; }
+.material-symbols-outlined.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-symbols-outlined.md-dark { color: rgba(0, 0, 0, 0.7); }
+.material-symbols-outlined.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-symbols-outlined.md-light { color: rgba(255, 255, 255, 1); }
+.material-symbols-outlined.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }

@@ -2,26 +2,42 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../../static/css/destyle.css" th:href="@{/css/destyle.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Nunito&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../static/css/formStyle.css" th:href="@{/css/formStyle.css}">
+	<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 	<title>タスクを追加する │ ToDoアプリケーション</title>
 </head>
 <body>
-<h1>タスクを追加する</h1>
-
-<form action="#" th:action="@{/form/add}" th:method="post" th:object="${addForm}">
-	<div>
-		<label for="titleInput">タイトル</label>
-		<input type="text" id="titleInput" th:field="*{task}">
-		<p th:if="${#fields.hasErrors('task')}" th:errors="*{task}">(error)</p>
-	</div>
-	<div>
-		<label for="limitInput">期限</label>
-		<input type="date" id="limitInput" th:field="*{limitDate}">
-		<p th:if="${#fields.hasErrors('limitDate')}" th:errors="*{limitDate}">(error)</p>
-	</div>
-	<div>
-		<a href="../list.html" th:href="@{/}">戻る</a>
-		<button type="submit">追加する</button>
-	</div>
-</form>
+	<header>
+		<div>
+		<h1>TO DO APPLICATION</h1>
+		</div>
+	</header>
+	<main>
+		<h2>新規追加</h2>
+		<div class="innerWrap">
+			<form action="#" th:action="@{/form/add}" th:method="post" th:object="${toDoForm}">
+				<div class="formLabel">
+					<label for="titleInput">タスク</label>
+					<input type="text" id="titleInput" th:field="*{task}">
+					<p th:if="${#fields.hasErrors('task')}" th:errors="*{task}">(error)</p>
+				</div>
+				<div class="formLabel">
+					<label for="limitInput">期限</label>
+					<input type="date" id="limitInput" th:field="*{limitDate}">
+					<p th:if="${#fields.hasErrors('limitDate')}" th:errors="*{limitDate}">(error)</p>
+				</div>
+				<div class="submitBtn">
+					<button type="submit">追加する</button>
+					<a href="../list.html" th:href="@{/}">戻る</a>
+				</div>
+			</form>
+		</div>
+	</main>
 </body>
 </html>
