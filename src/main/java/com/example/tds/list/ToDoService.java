@@ -37,8 +37,10 @@ public class ToDoService {
 	}
 
 	@Transactional
-	public void switchState(long toDoId) {
-		toDoRepository.switchState(toDoId);
+	public void switchState(boolean state, long toDoId) {
+		ToDoEntity toDoEntity = findById(toDoId);
+		toDoEntity.setState(!toDoEntity.isState());
+		toDoRepository.switchState(toDoEntity.isState(), toDoId);
 	}
 
 }

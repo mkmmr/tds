@@ -19,10 +19,8 @@
 		</div>
 	</header>
 	<main>
-		<div>
+		<div class="innerWrap headFlexBox">
 			<h2>タスク一覧</h2>
-		</div>
-		<div class="innerWrap">
 			<div class="submitBtn">
 				<a href="./form/add.html" th:href="@{/form/addForm}" >
 				<span class="material-symbols-outlined">add_circle</span>
@@ -44,10 +42,13 @@
 			<tbody>
 				<tr th:each="toDo : ${toDoList}" th:if="${toDo.state}">
 					<td class="width5">
-						<span class="material-symbols-rounded compIcon">check_circle</span>
+						<form action="#" th:action="@{/switch}" method="post"> 
+							<input type="hidden" name="toDoId" th:value="${toDo.id}"/>
+							<input type="submit" class="material-symbols-rounded compIcon" value="check_circle">
+						</form>
 					</td>
-					<td th:text="${toDo.task}">(task)</td>
-					<td th:text="${toDo.limitDate}">(limitDate)</td>
+					<td class="strikethrough" th:text="${toDo.task}">(task)</td>
+					<td class="strikethrough" th:text="${toDo.limitDate}">(limitDate)</td>
 					<td>
 						<a th:href="@{/form/editForm/{toDoId}(toDoId=${toDo.id})}" class="material-symbols-outlined menuIcon">edit</a>
 					</td>
