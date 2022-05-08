@@ -65,8 +65,8 @@ public class ToDoController {
 	}
 
 	@PostMapping("/switch")
-	public String switchState(long toDoId) {
-		toDoService.switchState(toDoId);
+	public String switchState(boolean state, long toDoId) {
+		toDoService.switchState(state, toDoId);
 		return "redirect:/";
 	}
 
