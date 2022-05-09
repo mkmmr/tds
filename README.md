@@ -1,5 +1,5 @@
 # ToDoListアプリ
-RaiseTech 22年03月 第７〜１０回課題用 CRUDアプリ
+RaiseTech 22年03月 第７〜１０回課題 練習用CRUDアプリ
 </br>
 
 ## 概要
@@ -15,7 +15,7 @@ ToDoの登録ができるCRUDアプリです。</br>
 </br>
 
 ## 画面一覧
-1. リスト一覧画面
+1. タスク一覧画面
 2. 新規追加画面
 3. 編集画面
 </br>
@@ -23,7 +23,7 @@ ToDoの登録ができるCRUDアプリです。</br>
 ## URL設計
 | 画面名／機能名 | URL | method | Controller method | 
 | ------------ | ------------- | ------------- | ------------- | 
-| リスト一覧画面表示 | / | GET | ToDoController@showList | 
+| タスク一覧画面表示 | / | GET | ToDoController@showList | 
 | 新規追加画面表示 | /form/add | GET | ToDoController@showAddForm | 
 | 新規追加 | /form/add | POST | ToDoController@create | 
 | 削除 | /delete | POST | ToDoController@delete | 
