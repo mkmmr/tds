@@ -1,8 +1,5 @@
 package com.example.tds.list;
 
-//import java.util.ArrayList;
-//import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,10 +17,9 @@ public class ToDoController {
 
 	private final ToDoService toDoService;
 
-	// GET /
 	@GetMapping
 	public String showList(Model model) {
-		model.addAttribute("toDoList", toDoService.selectAll());// toDoService.selectAll());
+		model.addAttribute("toDoList", toDoService.selectAll());
 		return "list";
 	}
 
