@@ -21,7 +21,7 @@
 	<main>
 		<h2>新規追加</h2>
 		<div class="innerWrap">
-			<form action="#" th:action="@{/form/add}" th:method="post" th:object="${toDoForm}">
+			<form action="#" th:action="@{/form/add-form}" th:method="post" th:object="${toDoForm}">
 				<div class="formLabel">
 					<label for="titleInput">タスク</label>
 					<input type="text" id="titleInput" th:field="*{task}">

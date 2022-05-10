@@ -22,7 +22,7 @@
 		<div class="innerWrap headFlexBox">
 			<h2>タスク一覧</h2>
 			<div class="submitBtn">
-				<a href="./form/add.html" th:href="@{/form/addForm}" >
+				<a href="./form/add.html" th:href="@{/form/add-form}" >
 				<span class="material-symbols-outlined">add_circle</span>
 				<span>新規タスク追加</span>
 				</a>
@@ -50,7 +50,7 @@
 					<td class="strikethrough" th:text="${toDo.task}">(task)</td>
 					<td class="strikethrough" th:text="${toDo.limitDate}">(limitDate)</td>
 					<td>
-						<a th:href="@{/form/editForm/{toDoId}(toDoId=${toDo.id})}" class="material-symbols-outlined menuIcon">edit</a>
+						<a th:href="@{/form/edit-form/{toDoId}(toDoId=${toDo.id})}" class="material-symbols-outlined menuIcon">edit</a>
 					</td>
 					<td>
 						<form th:action="@{/delete}" method="post">
@@ -69,7 +69,7 @@
 					<td th:text="${toDo.task}">(task)</td>
 					<td th:text="${toDo.limitDate}">(limitDate)</td>
 					<td>
-						<a th:href="@{/form/editForm/{toDoId}(toDoId=${toDo.id})}" class="material-symbols-outlined menuIcon">edit</a>
+						<a th:href="@{/form/edit-form/{toDoId}(toDoId=${toDo.id})}" class="material-symbols-outlined menuIcon">edit</a>
 					</td>
 					<td>
 						<form th:action="@{/delete}" method="post">

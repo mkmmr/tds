@@ -21,7 +21,7 @@
 	<main>
 		<h2>編集</h2>
 		<div class="innerWrap">
-			<form th:method="post" th:object="${editForm}" th:action="@{/form/editForm/{toDoId}(toDoId=*{id})}">
+			<form th:method="post" th:object="${editForm}" th:action="@{/form/edit-form/{toDoId}(toDoId=*{id})}">
 				<div class="formLabel">
 					<label for="taskEdit">タスク</label>
 					<input type="text" id="taskEdit" th:field="*{task}">

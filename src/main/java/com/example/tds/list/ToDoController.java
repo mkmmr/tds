@@ -27,12 +27,12 @@ public class ToDoController {
 		return "list";
 	}
 
-	@GetMapping("/form/addForm")
+	@GetMapping("/form/add-form")
 	public String showAddForm(@ModelAttribute ToDoForm form) {
 		return "form/addForm";
 	}
 
-	@PostMapping("/form/add")
+	@PostMapping("/form/add-form")
 	public String create(@Validated ToDoForm form, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return showAddForm(form);
@@ -47,13 +47,13 @@ public class ToDoController {
 		return "redirect:/";
 	}
 
-	@GetMapping("/form/editForm/{toDoId}")
+	@GetMapping("/form/edit-form/{toDoId}")
 	public String showEditForm(@PathVariable("toDoId") long toDoId, Model model) {
 		model.addAttribute("editForm", toDoService.findById(toDoId));
 		return "form/editForm";
 	}
 
-	@PostMapping("/form/editForm/{toDoId}")
+	@PostMapping("/form/edit-form/{toDoId}")
 	public String edit(@Validated ToDoForm form, BindingResult bindingResult, @PathVariable("toDoId") long toDoId,
 			Model model) {
 		if (bindingResult.hasErrors()) {
