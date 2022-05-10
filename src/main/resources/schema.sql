@@ -2,5 +2,5 @@ CREATE TABLE IF NOT EXISTS to_do_list (
 	id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	state BIT(1) NOT NULL DEFAULT b'0',
 	task VARCHAR(256),
-	limit_date VARCHAR(256)
+	limit_date DATE
 );
