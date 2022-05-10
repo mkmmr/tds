@@ -40,7 +40,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="toDo : ${toDoList}" th:if="${toDo.state}">
+				<tr th:each="toDo : ${toDoList}" th:if="${toDo.done}">
 					<td class="width5">
 						<form action="#" th:action="@{/switch}" method="post"> 
 							<input type="hidden" name="toDoId" th:value="${toDo.id}"/>
@@ -59,7 +59,7 @@
 						</form>
 					</td>
 				</tr>
-				<tr th:each="toDo : ${toDoList}" th:unless="${toDo.state}">
+				<tr th:each="toDo : ${toDoList}" th:unless="${toDo.done}">
 					<td class="width5">
 						<form action="#" th:action="@{/switch}" method="post"> 
 							<input type="hidden" name="toDoId" th:value="${toDo.id}"/>

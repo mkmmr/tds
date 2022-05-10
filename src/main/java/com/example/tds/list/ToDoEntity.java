@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ToDoEntity {
 	private long id;
-	private boolean state;
+	private boolean done;
 	private String task;
 	private String limitDate;
 }

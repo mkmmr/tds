@@ -28,5 +28,5 @@ public interface ToDoRepository {
 	ToDoEntity findById(@Param("id") long toDoId);
 
 	@Update("update to_do_list set state = #{state} where id = #{id}")
-	void switchState(@Param("state") boolean state, @Param("id") long toDoId);
+	void switchDone(@Param("state") boolean done, @Param("id") long toDoId);
 }
